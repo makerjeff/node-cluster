@@ -20,8 +20,8 @@ if (cluster.isMaster) {
     const app           = express();
 
     app.get('/', (req, res) => {
-        res.send('Hello World!');
         res.send(`Hello world from Worker ${cluster.worker.id}`);
+        console.log(`Sending to user from Worker ${cluster.worker.id}`);
     });
     
     app.listen(3000, () => {
