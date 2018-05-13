@@ -1,4 +1,4 @@
-// app.js
+// app.js, https://rowanmanning.com/posts/node-cluster-and-express/
 
 const cluster       = require('cluster');
 
@@ -12,6 +12,13 @@ if (cluster.isMaster) {
     for (let i = 0; i < cpu_count; i++) {
         cluster.fork();
     }
+
+    // listen for dying workers
+    cluster.on('exit', (worker) => {
+        //replace dead worker.
+        console.log(`Worker ${worker.id} died while in the fields. Spawning another...`);
+        cluster.fork();
+    });
 
 } else {
     // code to run if we're in a worker process
