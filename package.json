@@ -9,6 +9,7 @@
   "author": "Jefferson Wu <makerjeffwu@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.1",
     "express": "^4.16.3"
   }
 }
