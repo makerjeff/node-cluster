@@ -4,7 +4,7 @@
 const Sound = require('aplay');
 
 
-let music = new Sound();
+let music = new Sound({channel: 'l'});
 
 let track_url = './audio/ok.wav';
 
